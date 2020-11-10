@@ -55,19 +55,24 @@ class Eats extends React.Component {
   }
 }
 
-const WorldClock =(props) =>{
-  var currdate = moment();
+const WorldClock = (props) => {
+  return(
 
+        <Text>{props.city} - {moment.tz(props.city).format('Z')}</Text>
 
-
-}
-
+  )
+};
 class Clock extends React.Component {
   render(): React$Node {
     return (
+      <Text>
+        <WorldClock city={'Asia/Singapore'}/>
+        <WorldClock city={'Europe/London'}/>
+        <WorldClock city={'America/New_York'}/>
+        <WorldClock city={'Europe/Oslo'}/>
 
+      </Text>
     );
-
   }
 }
 
@@ -99,10 +104,11 @@ const App: () => React$Node = () => {
                 name={'Sweet Tooth Waffles'}
                 loc={'W6 level 1, E-canteen'}
               />
-              <Eats name={'Crowded Bowl'} loc={'W4/W6 Lawn Canteen'}/>
-              <Eats name={'Western Cuisine @Koufu'} loc={'E1 level 1, Koufu'}/>
-              <Eats name={'Ayam Penyet'} loc={'W4/W6 Lawn Canteen'}/>
+              <Eats name={'Crowded Bowl'} loc={'W4/W6 Lawn Canteen'} />
+              <Eats name={'Western Cuisine @Koufu'} loc={'E1 level 1, Koufu'} />
+              <Eats name={'Ayam Penyet'} loc={'W4/W6 Lawn Canteen'} />
               <Text>{'\n'}World Clock</Text>
+              <Clock />
             </View>
           </View>
         </ScrollView>
